@@ -8,11 +8,11 @@ use tech.maze.dtos.assets.models#AssetMetaDatas
 use tech.maze.events#event
 
 @protoEnabled
-@event(type: "tech.maze.assets.fetch.request", topic: "assets.fetch.request", version: "1.0.0")
+@event(type: "tech.maze.assets.fetch.request")
 structure FetchAssetsRequest {}
 
 @protoEnabled
-@event(type: "tech.maze.assets.fetch.response", topic: "assets.fetch.response", version: "1.0.0")
+@event(type: "tech.maze.assets.fetch.response")
 structure FetchAssetsResponse {
     @required
     sourceRequest: FetchAssetsRequest
