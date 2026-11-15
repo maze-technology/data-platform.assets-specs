@@ -8,11 +8,11 @@ use tech.maze.dtos.assets.models#AssetMetaDatas
 use tech.maze.events#event
 
 @protoEnabled
-@event(type: "tech.maze.assets.fetch.request", topic: "assets.fetch.request", version: "1.0.0")
+@event(type: "tech.maze.assets.fetch.request")
 structure FetchAssetsRequest {}
 
 @protoEnabled
-@event(type: "tech.maze.assets.fetch.response", topic: "assets.fetch.response", version: "1.0.0")
+@event(type: "tech.maze.assets.fetch.response")
 structure FetchAssetsResponse {
     @required
     sourceRequest: FetchAssetsRequest
@@ -23,6 +23,12 @@ structure FetchAssetsResponse {
     @required
     assetMetaDatas: AssetMetaDatas
 
+    /// Zero-based contiguous page index within this provider's response stream.
+    @required
+    @range(min: 0)
+    pageIndex: Integer
+
+    /// True when this page is the last page for the provider (may arrive out of order).
     @required
     isLast: Boolean
 
