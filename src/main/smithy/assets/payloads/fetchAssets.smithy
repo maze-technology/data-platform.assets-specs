@@ -23,6 +23,12 @@ structure FetchAssetsResponse {
     @required
     assetMetaDatas: AssetMetaDatas
 
+    /// Zero-based contiguous page index within this provider's response stream.
+    @required
+    @range(min: 0)
+    pageIndex: Integer
+
+    /// True when this page is the last page for the provider (may arrive out of order).
     @required
     isLast: Boolean
 
